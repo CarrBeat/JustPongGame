@@ -26,9 +26,7 @@ import GameObject.PaddleEnemy;
 import GameObject.Rectangle;
 import pong.game.PongGame;
 
-/**
- *
- */
+
 public class GameScreen implements Screen {
     private Game game;
     private static final int WORLD_WIDTH  = PongGame.WORLD_WIDTH;

@@ -8,6 +8,7 @@ import com.badlogic.gdx.physics.box2d.World;
 
 
 public class Paddle extends Rectangle {
+    boolean isMobile = false;
     public Paddle(World _world, ShapeRenderer _shapeRenderer, float _width, float _height) {
         super(_world, _shapeRenderer, _width, _height);
     }
@@ -30,7 +31,7 @@ public class Paddle extends Rectangle {
         //-------------------------------------------------------//
         // Управление тач скрином                                //
         //-------------------------------------------------------//
-        if (Gdx.input.isTouched()) {
+        if (Gdx.input.isTouched() & isMobile) {
             float touch_x = Gdx.input.getX()/(screen_width/world_width);
             if (touch_x - width/2f >= min_x && touch_x + width/2f <= max_x) {
                 body.setTransform(touch_x - width/2f, body_y, 0f);

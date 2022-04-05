@@ -43,46 +43,38 @@ public class FirstScreen implements Screen {
         batch = new SpriteBatch();
         batch.setProjectionMatrix(camera.combined);
 
-        /*
-        FileHandle[] dirHandle = Gdx.files.internal("./").list();
-        for(FileHandle file: dirHandle) {
-            Gdx.app.log("aaa", file.toString());
-        }
-        */
-
         // Звуки
         final Sound f_sharp_5 = Gdx.audio.newSound(Gdx.files.internal("data/pongblip_f_sharp_5.mp3"));
 
         // Шрифты
         FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("data/04b_24.ttf"));
-        // FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("data/04b_03b.ttf"));
-        // FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("data/04b_08.ttf"));
+
         FreeTypeFontGenerator.FreeTypeFontParameter parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
         parameter.size = 60;  // 80; // WORLD_HEIGHT / 10;
         font = generator.generateFont(parameter);
 
-        parameter.size = 120; // 160;
+        parameter.size = 80; // 160;
         font_big = generator.generateFont(parameter);
 
         generator.dispose();
 
         Label.LabelStyle label_style = new Label.LabelStyle();
-        label_style.font      = font;
+        label_style.font = font;
         label_style.fontColor = Color.WHITE;
 
         Label.LabelStyle label_big_style = new Label.LabelStyle();
-        label_big_style.font      = font_big;
+        label_big_style.font = font_big;
         label_big_style.fontColor = Color.WHITE;
 
         //-------------------------------------------------------//
         //                        PONG                           //
         //-------------------------------------------------------//
-        Label label_pong = new Label("PONG", label_big_style);
+        Label label_pong = new Label("NOHG", label_big_style);
 
         //-------------------------------------------------------//
         //                      1 PLAYER                         //
         //-------------------------------------------------------//
-        Label label_1_player = new Label("PLAY TO", label_style);
+        Label label_1_player = new Label("PLAY TO:", label_style);
         /*
         label_1_player.addListener(new ClickListener() {
             @Override
@@ -95,20 +87,9 @@ public class FirstScreen implements Screen {
         });
         */
 
-        // Игра до 1 победы
-        Label label_1_win = new Label("1 WIN", label_style);
+        // Игра до 3 победы
+        Label label_1_win = new Label("3 WINS", label_style);
         label_1_win.addListener(new ClickListener() {
-            @Override
-            public void clicked(InputEvent event, float x, float y) {
-                f_sharp_5.play();
-                game.setScreen(new GameScreen((PongGame) game, 1));
-                dispose();
-            }
-        });
-
-        // Игра до 3 побед
-        Label label_3_wins = new Label("3 WINS", label_style);
-        label_3_wins.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 f_sharp_5.play();
@@ -118,8 +99,8 @@ public class FirstScreen implements Screen {
         });
 
         // Игра до 5 побед
-        Label label_5_wins = new Label("5 WINS", label_style);
-        label_5_wins.addListener(new ClickListener() {
+        Label label_3_wins = new Label("5 WINS", label_style);
+        label_3_wins.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 f_sharp_5.play();
@@ -129,37 +110,13 @@ public class FirstScreen implements Screen {
         });
 
         // Игра до 10 побед
-        Label label_10_wins = new Label("10 WINS", label_style);
-        label_10_wins.addListener(new ClickListener() {
+        Label label_5_wins = new Label("10 WINS", label_style);
+        label_5_wins.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 f_sharp_5.play();
                 game.setScreen(new GameScreen((PongGame) game, 10));
                 dispose();
-            }
-        });
-
-        //-------------------------------------------------------//
-        //                      2 PLAYERS                        //
-        //-------------------------------------------------------//
-        Label label_2_players = new Label("2 PLAYERS", label_style);
-        label_2_players.addListener(new ClickListener() {
-            @Override
-            public void clicked(InputEvent event, float x, float y) {
-                // Gdx.app.log("button", "clicked 2 players");
-                f_sharp_5.play();
-            }
-        });
-
-        //-------------------------------------------------------//
-        //                      SETTINGS                         //
-        //-------------------------------------------------------//
-        Label label_settings = new Label("SETTINGS", label_style);
-        label_settings.addListener(new ClickListener() {
-            @Override
-            public void clicked(InputEvent event, float x, float y) {
-                // Gdx.app.log("button", "clicked settings");
-                f_sharp_5.play();
             }
         });
 
