@@ -64,9 +64,9 @@ class FinishScreen implements Screen { // экран окончания игры
         label_big_style.font = font_big;
         label_big_style.fontColor = Color.WHITE;
 
-        Label label_player_wins = new Label("PLAYER WINS", label_big_style);
+        Label label_player_wins = new Label("PLAYER WIN", label_big_style);
 
-        Label label_device_wins = new Label("DEVICE WINS", label_big_style);
+        Label label_device_wins = new Label("YOU LOSE", label_big_style);
 
         Label label_play_again = new Label("PLAY AGAIN", label_style);
         label_play_again.addListener(new ClickListener() {
