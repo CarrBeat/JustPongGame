@@ -27,8 +27,8 @@ public class FirstScreen implements Screen {
     private SpriteBatch batch;
     private BitmapFont font, font_big;
 
-    public FirstScreen(PongGame _game) {
-        game = _game;
+    public FirstScreen(PongGame game) {
+        this.game = game;
     }
     @Override
     public void show() {
@@ -37,9 +37,12 @@ public class FirstScreen implements Screen {
         camera.update();
         batch = new SpriteBatch();
         batch.setProjectionMatrix(camera.combined);
+
         final Sound f_sharp_5 = Gdx.audio.newSound(Gdx.files.internal("data/pongblip_f_sharp_5.mp3")); // звук выбора
+
         FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("data/04b_24.ttf")); // установка шрифта
         FreeTypeFontGenerator.FreeTypeFontParameter parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
+
         parameter.size = 60;
         font = generator.generateFont(parameter);
         parameter.size = 80;
@@ -133,19 +136,13 @@ public class FirstScreen implements Screen {
     }
 
     @Override
-    public void pause() {
-
-    }
+    public void pause() { }
 
     @Override
-    public void resume() {
-
-    }
+    public void resume() { }
 
     @Override
-    public void hide() {
-
-    }
+    public void hide() { }
 
     @Override
     public void dispose() {

@@ -28,8 +28,8 @@ class FinishScreen implements Screen { // экран окончания игры
     private SpriteBatch batch;
     private BitmapFont font, font_big;
 
-    FinishScreen(PongGame _game, boolean is_player_wins, int score_to_wins) {
-        this.game         = _game;
+    FinishScreen(PongGame game, boolean is_player_wins, int score_to_wins) {
+        this.game = game;
         this.isPlayerWins = is_player_wins;
         this.scoreToWins  = score_to_wins;
     }

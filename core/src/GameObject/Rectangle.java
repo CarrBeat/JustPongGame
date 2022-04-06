@@ -18,23 +18,23 @@ public class Rectangle {
     private FixtureDef fixtureDef;
     public Body body;
 
-    public Rectangle(World _world, ShapeRenderer _shapeRenderer, float _width, float _height) {
-        width = _width;
-        height = _height;
-        shapeRenderer = _shapeRenderer;
-        createBody(_world);
+    public Rectangle(World world, ShapeRenderer shapeRenderer, float width, float height) {
+        this.width = width;
+        this.height = height;
+        this.shapeRenderer = shapeRenderer;
+        createBody(world);
     }
 
     private void createBody(World _world) {
         bodyDef = new BodyDef();
-        bodyDef.type   = BodyDef.BodyType.KinematicBody;
+        bodyDef.type = BodyDef.BodyType.KinematicBody;
         bodyDef.bullet = true;
         PolygonShape shape = new PolygonShape();
         shape.setAsBox(width/2, height/2, new Vector2(width/2, height/2), 0f);
         fixtureDef  = new FixtureDef();
-        fixtureDef.shape       = shape;
-        fixtureDef.density     = 1f;
-        fixtureDef.friction    = 0f;
+        fixtureDef.shape = shape;
+        fixtureDef.density = 1f;
+        fixtureDef.friction = 0f;
         fixtureDef.restitution = 1f;
         body = _world.createBody(bodyDef);
         body.createFixture(fixtureDef);

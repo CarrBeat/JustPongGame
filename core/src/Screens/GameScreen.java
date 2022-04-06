@@ -83,13 +83,13 @@ public class GameScreen implements Screen {
     private FPSLogger fpsLogger;
 
     // Сосотояние игры
-    private enum State { PAUSE, RUN, RESUME, STOPPED }
+    private enum State { RUN  }
     private State state = State.RUN;
     private int paddleScore = 0;
     private int paddleEnemyScore = 0;
     private int paddleContact = 0;     // касаение с ракеткой, через 5 касаний увеливается скорость
     private boolean isPaddleGoal = false; // чей гол - нужно для определения направления старта мячика
-    private boolean gameActive   = false;
+    private boolean gameActive = false;
     private int scoreToWins;
     private Sound f_sharp_3;
 
