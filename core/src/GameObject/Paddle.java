@@ -5,8 +5,6 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.physics.box2d.World;
 
-
-
 public class Paddle extends Rectangle {
     boolean isMobile = false;
     public Paddle(World _world, ShapeRenderer _shapeRenderer, float _width, float _height) {
@@ -17,32 +15,22 @@ public class Paddle extends Rectangle {
         float body_x = body.getPosition().x;
         float body_y = body.getPosition().y;
 
-        //-------------------------------------------------------//
-        // Управление клавишами                                  //
-        //-------------------------------------------------------//
-        if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) { // && body_y - height > 0) {
+        if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) { // управление кнопками
             body.setLinearVelocity(-move_velocity, 0f);
-        } else if(Gdx.input.isKeyPressed(Input.Keys.RIGHT)) { // && body_y + height < height){
+        } else if(Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
             body.setLinearVelocity(move_velocity, 0f);
         } else {
             body.setLinearVelocity(0f, 0f);
         }
 
-        //-------------------------------------------------------//
-        // Управление тач скрином                                //
-        //-------------------------------------------------------//
-        if (Gdx.input.isTouched() & isMobile) {
+        if (Gdx.input.isTouched() & isMobile) { // управление сенсором
             float touch_x = Gdx.input.getX()/(screen_width/world_width);
             if (touch_x - width/2f >= min_x && touch_x + width/2f <= max_x) {
                 body.setTransform(touch_x - width/2f, body_y, 0f);
             }
-            // Gdx.app.log("touched", Integer.toString(90 - Gdx.input.getY() / (720 / 90)));
         }
 
-        //-------------------------------------------------------//
-        // Ограничения                                           //
-        //-------------------------------------------------------//
-        if (body_x < min_x) {
+        if (body_x < min_x) { // ограничения
             body.setTransform(min_x, body_y, 0f);
         } else if (body_x + width > max_x) {
             body.setTransform(max_x - width, body_y, 0f);

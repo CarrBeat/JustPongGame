@@ -31,7 +31,7 @@ public class Rectangle {
         bodyDef.bullet = true;
         PolygonShape shape = new PolygonShape();
         shape.setAsBox(width/2, height/2, new Vector2(width/2, height/2), 0f);
-        fixtureDef             = new FixtureDef();
+        fixtureDef  = new FixtureDef();
         fixtureDef.shape       = shape;
         fixtureDef.density     = 1f;
         fixtureDef.friction    = 0f;
