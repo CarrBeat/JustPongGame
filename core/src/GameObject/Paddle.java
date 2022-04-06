@@ -6,7 +6,7 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.physics.box2d.World;
 
 public class Paddle extends Rectangle {
-    boolean isMobile = false;
+    public static boolean isMobile = false;
     public Paddle(World _world, ShapeRenderer _shapeRenderer, float _width, float _height) {
         super(_world, _shapeRenderer, _width, _height);
     }
